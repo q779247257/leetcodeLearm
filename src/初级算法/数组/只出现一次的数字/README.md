@@ -15,10 +15,9 @@
 输入: [4,1,2,1,2]
 输出: 4
 
-作者：力扣 (LeetCode)
 链接：https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x21ib6/
 
-[代码示例](./ANumberThatAppearsOnlyOnce)
+[代码示例](./ANumberThatAppearsOnlyOnce.Java)
 
 ------
 
@@ -46,4 +45,34 @@
 ```
 
 
+
+### 解法2：巧用 位运算
+
+​	首先我们来 ^(异或)的三个性质
+
+ A ^ A = 0 异或自己等于0
+
+A ^ 0 = A  异或0无变化
+
+A ^ B ^ A =  A ^ A ^ B  满足交换律和结合律
+
+那么 **假设在一个集合中 有 2M的重复元素和一个不重复元素，**
+
+**那么我不论对 2M的数字以怎样的顺序进行异或运算，它的最终结果都是0**。
+
+而 0 ^ **一个不重复的元素 还是等于自己**.
+
+ 这样我们只需要把 所以的元素进行异或运算即可得到我们想要的值。
+
+```Java
+    /** 异或运算 */
+    public int singleNumberTwp(int nums[]) {
+        int result = 0;
+        for (int num : nums) {
+            result ^= num;
+        }
+        return result;
+    }
+
+```
 

@@ -38,4 +38,13 @@ public class ANumberThatAppearsOnlyOnce {
         }
         return (Integer) set.toArray()[0];
     }
+
+    /** 异或运算 */
+    public int singleNumberTwp(int nums[]) {
+        int result = 0;
+        for (int num : nums) {
+            result ^= num;
+        }
+        return result;
+    }
 }
