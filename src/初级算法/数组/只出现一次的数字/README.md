@@ -17,7 +17,7 @@
 
 链接：https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x21ib6/
 
-[代码示例](./ANumberThatAppearsOnlyOnce.Java)
+[代码示例](./ANumberThatAppearsOnlyOnce.java)
 
 ------
 
