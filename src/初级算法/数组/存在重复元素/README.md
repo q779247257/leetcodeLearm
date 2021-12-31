@@ -21,7 +21,8 @@
 链接：https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x248f5/
 
 ------
-[代码示例](./RepeatingElement.java)
+[代码示例(Java)](./RepeatingElement.java)
+[代码示例(Js)](./RepeatingElement.js)
 
 
 
