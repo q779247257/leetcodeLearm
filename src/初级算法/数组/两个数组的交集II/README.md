@@ -37,9 +37,11 @@
 
 然后遍历第二个列表，对于第二个数组中的每个元素，如果 **在哈希表中存在这个元素，那么我们将元素添加到返回的列表中，并且现在在哈希表中减少元素的次数。**
 
-<img src = "https://assets.leetcode-cn.com/solution-static/350/350_fig1.gif"></img>
-
 ​	**为了降低空间复杂度，我们可以将长度短的列表作为哈希表的**，然后便利长的列表获取我们要的结果。
+
+![demo](./image/350_fig1.gif)
+
+
 
 ```java
     private int[] intersect(int[] nums1, int[] nums2) {
