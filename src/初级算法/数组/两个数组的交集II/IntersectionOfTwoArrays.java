@@ -12,6 +12,8 @@ public class IntersectionOfTwoArrays {
         IntersectionOfTwoArrays intersectionOfTwoArrays = new IntersectionOfTwoArrays();
         int[] intersect = intersectionOfTwoArrays.intersect(new int[]{4, 9, 5, 4, 4}, new int[]{9, 4, 9, 8, 4, 6});
         System.out.println(Arrays.toString(intersect));
+        int[] intersect2 = intersectionOfTwoArrays.intersectTwo(new int[]{4, 9, 5, 4, 4}, new int[]{9, 4, 9, 8, 4, 6});
+        System.out.println(Arrays.toString(intersect2));
     }
 
     private int[] intersect(int[] nums1, int[] nums2) {
@@ -22,7 +24,7 @@ public class IntersectionOfTwoArrays {
         }
 
         //存储次数标记
-        Map<Integer, Integer> countMap = new HashMap<>();
+        Map<Integer, Integer> countMap = new HashMap<Integer, Integer> ();
         for (int anInt : nums1) {
             Integer orDefault = countMap.getOrDefault(anInt, 0)+1;
             countMap.put(anInt,orDefault);
@@ -53,4 +55,38 @@ public class IntersectionOfTwoArrays {
     }
 
 
+    private int[] intersectTwo(int[] nums1 , int[] nums2){
+
+        //先排序
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+
+        int point1 = 0;//指针1
+        int point2 = 0;//指针2
+
+        List<Integer> resultList = new ArrayList<>(16);
+
+
+        while (point1 < nums1.length && point2 < nums2.length){
+            if (nums1[point1] > nums2[point2]){
+                //point2 是小指针，point2往后移动+1
+                point2++;
+            }else if (nums2[point2] > nums1[point1]){
+                //point1 是小指针，往后移动+1
+                point1++;
+            }else {
+                //2个指针值相同，添加到列表中，并且2个指针都+1
+                resultList.add(nums1[point1]);
+                point1++;
+                point2++;
+            }
+        }
+
+        int[] reslutArray = new int[resultList.size()];
+
+        for (int i = 0; i < resultList.size(); i++) {
+            reslutArray[i] = resultList.get(i);
+        }
+        return reslutArray;
+    }
 }

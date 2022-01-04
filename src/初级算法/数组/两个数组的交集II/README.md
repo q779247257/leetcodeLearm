@@ -84,3 +84,56 @@
 
 ```
 
+### 解法2 利用排序
+
+​	先对2个数组进行排序，然后使用2个指针，分别指向2个数组的开始位置；
+
+
+
+如果2个指针指向的值 **相同**，说明这个值是交集，就把这个值加入到集合中，并且把2个指针分别 **往后移动一步**。
+
+如果2个指针不同，那么我们把指针值比较比的指针 **往后移动一步** ，大的指针不动，然后继续比较。
+
+
+
+我们一直重复上面的操作，直到其中一个指针不能再移动；
+
+
+
+```java
+    private int[] intersectTwo(int[] nums1 , int[] nums2){
+
+        //先排序
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+
+        int point1 = 0;//指针1
+        int point2 = 0;//指针2
+
+        List<Integer> resultList = new ArrayList<>(16);
+
+
+        while (point1 < nums1.length && point2 < nums2.length){
+            if (nums1[point1] > nums2[point2]){
+                //point2 是小指针，point2往后移动+1
+                point2++;
+            }else if (nums2[point2] > nums1[point1]){
+                //point1 是小指针，往后移动+1
+                point1++;
+            }else {
+                //2个指针值相同，添加到列表中，并且2个指针都+1
+                resultList.add(nums1[point1]);
+                point1++;
+                point2++;
+            }
+        }
+
+        int[] reslutArray = new int[resultList.size()];
+
+        for (int i = 0; i < resultList.size(); i++) {
+            reslutArray[i] = resultList.get(i);
+        }
+        return reslutArray;
+    }
+```
+
