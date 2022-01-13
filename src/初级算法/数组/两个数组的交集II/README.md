@@ -23,7 +23,8 @@
 
 
 
-[代码示例](./IntersectionOfTwoArrays.java)
+[代码示例(Java)](./IntersectionOfTwoArrays.java)
+[代码示例(Js)](./IntersectionOfTwoArrays.js)
 
 ------
 
