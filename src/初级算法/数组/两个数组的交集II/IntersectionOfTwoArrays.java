@@ -64,7 +64,7 @@ public class IntersectionOfTwoArrays {
         int point1 = 0;//指针1
         int point2 = 0;//指针2
 
-        List<Integer> resultList = new ArrayList<>(16);
+        List<Integer> resultList = new ArrayList<Integer>(16);
 
 
         while (point1 < nums1.length && point2 < nums2.length){
