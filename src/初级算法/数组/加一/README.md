@@ -38,6 +38,7 @@
 
 
 [代码示例(Java)](./PlusOne.java)
+[代码示例(Js)](./PlusOne.js)
 
 
 
