@@ -90,4 +90,4 @@ public static String addBinary2(String a, String b) {
 
 ### 示例代码
 
-[代码示例(Java)](./Solution.java)
+[代码示例(Java)](./Solution67.java)
