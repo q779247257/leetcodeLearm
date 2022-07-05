@@ -14,7 +14,7 @@
 
 我们循环依次判断即可，**需要注意的是，我们判断九宫格的时候，需要添加一个 flag 来判断这个数字是否已经被添加到九宫格中**
 
-![1657008755535](C:\Users\allenxing\AppData\Roaming\Typora\typora-user-images\1657008755535.png)
+![image.png](https://pic.leetcode-cn.com/1657000551-AkJFyU-image.png)
 
   
 
