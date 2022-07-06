@@ -95,5 +95,5 @@
     }
 ```
 
-[代码示例(Java)](./Solution.java)
+[代码示例(Java)](Solution36.java)
 

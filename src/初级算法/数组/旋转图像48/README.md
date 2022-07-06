@@ -1,7 +1,7 @@
 ## 旋转图像
 ![image.png](https://pic.leetcode-cn.com/1657010320-cMYact-image.png)
 
-### 方法1 辅助数组
+### 方法一 辅助数组
 
 作为例子，分析将图像旋转 90 度之后，这些数字出现在什么位置。
 
@@ -45,3 +45,57 @@ public void rotate(int[][] matrix) {
     }
 ```
 
+
+
+### 方法二 翻转代替旋转
+
+​	我们也可以使用翻转来代替旋转，这样我们可以不用使用额外的空间
+
+![image.png](https://pic.leetcode-cn.com/1657073204-SGuWcq-image.png)
+
+​    我们先将它上下翻转，得到：
+
+![image.png](https://pic.leetcode-cn.com/1657073319-DIfWKb-image.png)  
+
+我们可以观察得到： ***matrix* [row] [col]**   翻转后  ***matrix* [length-1-row] [col]**
+
+  然后我们再根据对角线进行翻转：
+
+![image.png](https://pic.leetcode-cn.com/1657073336-UUslcc-image.png)
+
+我们可以观察到对角线的等式为：***matrix* [row] [col]** = ***matrix* [col] [row]**
+
+因此，我们的代码为
+
+   
+
+```java
+    public void rotate(int[][] matrix) {
+        int length = matrix.length;
+        //水平旋转 所以只循环一半即可
+        for (int row = 0; row < length/2; row++) {
+            for (int col = 0; col < length; col++) {
+                int newRow = length-1-row;
+                int newCol = col ;
+                matrix[row][col] =matrix[row][col] ^ matrix[newRow][newCol];
+                matrix[newRow][newCol] =matrix[row][col] ^ matrix[newRow][newCol];
+                matrix[row][col] =matrix[row][col] ^ matrix[newRow][newCol];
+            }
+        }
+
+        //对角线旋转 每次一行旋转的元素数量 = 当前行数
+        for (int row = 0; row < length; row++) {
+            for (int col = 0; col < row; col++) {
+                int newRow =col;
+                int newCol = row ;
+                matrix[row][col] =matrix[row][col] ^ matrix[newRow][newCol];
+                matrix[newRow][newCol] =matrix[row][col] ^ matrix[newRow][newCol];
+                matrix[row][col] =matrix[row][col] ^ matrix[newRow][newCol];
+            }
+        }
+    }
+```
+
+
+
+[代码示例(Java)](./Solution48.java)

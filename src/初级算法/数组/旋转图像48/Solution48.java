@@ -1,4 +1,3 @@
-package 初级算法.数组.旋转图像48;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -26,7 +25,16 @@ import java.util.HashMap;
  * 来源：力扣（LeetCode）
  * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  */
-public class Solution {
+public class Solution48 {
+    public static void main(String[] args) {
+        int a = 3;
+        int b = 6;
+        a = a^b;
+        b = a^b;
+        a = a^b;
+        System.out.println("a ："+a);
+        System.out.println(" b："+b);
+    }
 
 
 
@@ -50,6 +58,32 @@ public class Solution {
         for (int i = 0; i < newArrays.length; i++) {
             for (int j = 0; j < newArrays.length; j++) {
                 matrix[i][j]=newArrays[i][j];
+            }
+        }
+    }
+
+
+    public void rotate2(int[][] matrix) {
+        int length = matrix.length;
+        //水平旋转 所以只循环一半即可
+        for (int row = 0; row < length/2; row++) {
+            for (int col = 0; col < length; col++) {
+                int newRow = length-1-row;
+                int newCol = col ;
+                matrix[row][col] =matrix[row][col] ^ matrix[newRow][newCol];
+                matrix[newRow][newCol] =matrix[row][col] ^ matrix[newRow][newCol];
+                matrix[row][col] =matrix[row][col] ^ matrix[newRow][newCol];
+            }
+        }
+
+        //对角线旋转 每次一行旋转的元素数量 = 当前行数
+        for (int row = 0; row < length; row++) {
+            for (int col = 0; col < row; col++) {
+                int newRow =col;
+                int newCol = row ;
+                matrix[row][col] =matrix[row][col] ^ matrix[newRow][newCol];
+                matrix[newRow][newCol] =matrix[row][col] ^ matrix[newRow][newCol];
+                matrix[row][col] =matrix[row][col] ^ matrix[newRow][newCol];
             }
         }
     }
