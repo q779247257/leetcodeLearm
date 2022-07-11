@@ -23,7 +23,7 @@ public class FirstUniqueCharacterinString {
 
         for (int i = 0; i < s.length(); i++) {
             if (sMap.get(s.charAt(i)) == 1) {
-                return sMap.get(s.charAt(i));
+                return i;
             }
         }
 
