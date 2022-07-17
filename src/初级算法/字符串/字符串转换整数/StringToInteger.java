@@ -28,6 +28,6 @@ public class StringToInteger {
 
         }
 
-        return result;
+        return 0;
     }
 }
